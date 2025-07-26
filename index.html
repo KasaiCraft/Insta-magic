@@ -1,0 +1,177 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaCraft AI</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "hashtags": "./hashtags.js"
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script type="module" src="app.js"></script>
+</head>
+<body>
+    <div class="hero-section">
+        <h1>Go Viral Faster with AI-Powered Instagram Magic</h1>
+        <p class="subtext">Generate scroll-stopping captions, hashtags, and analytics—in seconds.</p>
+        <button class="cta-button">Start Creating Free &rarr;</button>
+        <div class="typing-animation-container">
+            <span id="typing-text"></span>
+        </div>
+        <div class="hero-bg-elements">
+            <!-- Placeholder for abstract gradient waves and floating Instagram UI elements -->
+        </div>
+    </div>
+
+    <div class="section preview-slider-section">
+        <h2>Dynamic AI Previews</h2>
+        <div class="slider-container">
+            <div class="preview-card">
+                <h3>Caption Generator Demo</h3>
+                <p class="demo-input">Input: "Me at the beach 🌊"</p>
+                <p class="demo-output">Output: "Salt in the air, sand in my hair 🏖️ #BeachVibes"</p>
+                <button class="try-it-btn" data-feature="caption">Try It</button>
+            </div>
+            <div class="preview-card">
+                <h3>Hashtag Optimizer Demo</h3>
+                <p class="demo-input">Input: "Vegan breakfast"</p>
+                <p class="demo-output">#VeganEats (382K posts) | #PlantBasedBreakfast (112K posts)</p>
+                <button class="try-it-btn" data-feature="hashtag">Try It</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section how-it-works-section">
+        <h2>How InstaCraft AI Works</h2>
+        <div class="container">
+            <p>InstaCraft AI simplifies your social media strategy with intelligent automation. Here's how you can boost your Instagram presence in three easy steps:</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <h3>1. Describe & Select</h3>
+                    <p>Simply tell our AI about your photo or video, and choose your desired caption style – whether it's trendy, funny, or minimalist.</p>
+                </div>
+                <div class="step-card">
+                    <h3>2. Generate Instantly</h3>
+                    <p>Our powerful AI creates multiple engaging caption options and a curated list of high-impact, targeted hashtags in seconds.</p>
+                </div>
+                <div class="step-card">
+                    <h3>3. Copy & Post</h3>
+                    <p>Select your favorite caption, copy it along with the optimized hashtags, and paste directly into your Instagram post. Watch your engagement grow!</p>
+                </div>
+            </div>
+            <p class="call-to-action-text">It's that simple! Start creating viral content today.</p>
+        </div>
+    </div>
+
+    <div class="section caption-generator-section" id="captionGeneratorSection">
+        <h2>AI-Powered Caption & Hashtag Generator</h2>
+        <div class="container">
+            <div class="input-section">
+                <label for="photoDescription">Describe your photo:</label>
+                <textarea id="photoDescription" placeholder="e.g., A golden retriever puppy playing in the park with a red ball, sunny day..." rows="4"></textarea>
+
+                <label>Choose a caption style:</label>
+                <div class="options-group">
+                    <input type="radio" id="styleTrendy" name="captionStyle" value="Trendy" checked>
+                    <label for="styleTrendy">Trendy</label>
+
+                    <input type="radio" id="styleFunny" name="captionStyle" value="Funny">
+                    <label for="styleFunny">Funny</label>
+
+                    <input type="radio" id="styleMinimal" name="captionStyle" value="Minimal">
+                    <label for="styleMinimal">Minimal</label>
+                </div>
+
+                <div class="options-group">
+                    <input type="checkbox" id="isBusinessCheckbox">
+                    <label for="isBusinessCheckbox">I'm a business. My handle is:</label>
+                    <input type="text" id="businessHandleInput" placeholder="@YourBusiness" class="hidden">
+                </div>
+
+                <button id="generateBtn">Generate Captions & Hashtags</button>
+                <p id="loadingMessage" class="feedback-message hidden">Generating...</p>
+            </div>
+
+            <div class="output-section hidden" id="outputSection">
+                <h3>Generated Captions:</h3>
+                <div class="output-block" id="captionsOutput">
+                    <!-- Captions will be inserted here by JS -->
+                    <p class="feedback-message">Select a caption to copy.</p>
+                </div>
+
+                <h3>Targeted Hashtags:</h3>
+                <div class="output-block" id="hashtagsOutput">
+                    <!-- Hashtags will be inserted here by JS -->
+                </div>
+
+                <button id="copyAllBtn">Copy Selected Caption & Hashtags</button>
+                <p id="copyFeedback" class="feedback-message hidden">Copied to clipboard!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section features-section">
+        <h2>Unlock Your Growth Potential</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <lottie-player id="lottieAICaptions" background="transparent" speed="1" loop autoplay class="feature-icon"></lottie-player>
+                <h3>AI Captions</h3>
+                <p>Generate 50+ caption styles (sassy, minimalist, etc.)</p>
+            </div>
+            <div class="feature-card">
+                <lottie-player id="lottieHashtagGenius" background="transparent" speed="1" loop autoplay class="feature-icon"></lottie-player>
+                <h3>Hashtag Genius</h3>
+                <p>Auto-pick high-growth, low-competition tags</p>
+            </div>
+            <div class="feature-card">
+                <lottie-player id="lottieSmartScheduler" background="transparent" speed="1" loop autoplay class="feature-icon"></lottie-player>
+                <h3>Smart Scheduler</h3>
+                <p>Post at perfect times for your audience</p>
+            </div>
+            <div class="feature-card">
+                <lottie-player id="lottieAnalyticsDashboard" background="transparent" speed="1" loop autoplay class="feature-icon"></lottie-player>
+                <h3>Analytics Dashboard</h3>
+                <p>Track what's working with AI insights</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section testimonials-section">
+        <h2>What Our Creators Say</h2>
+        <div class="testimonials-carousel">
+            <div class="testimonial-card">
+                <img src="creator1.png" alt="Creator Photo" class="creator-photo">
+                <p class="quote">"Grew from 10K to 100K followers using InstaCraft's hashtags!"</p>
+                <p class="creator-handle">– @SocialMediaPro</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="creator2.png" alt="Creator Photo" class="creator-photo">
+                <p class="quote">"InstaCraft AI completely transformed my content strategy. A game-changer!"</p>
+                <p class="creator-handle">– @CreativeVoyager</p>
+            </div>
+            <!-- Add more testimonial cards as needed -->
+        </div>
+        <div class="trust-badges">
+            <p>Featured in <b>Forbes</b>, <b>TechCrunch</b></p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="mini-cta">
+            <p>Ready to grow? <a href="#" class="cta-link">Start free &rarr;</a></p>
+        </div>
+        <div class="social-proof">
+            <p>Loved by 500K+ creators</p>
+            <div class="social-icons">
+                <!-- Placeholder for Instagram/TikTok follow buttons -->
+                <a href="#" aria-label="Follow us on Instagram"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" class="social-icon"></a>
+                <a href="#" aria-label="Follow us on TikTok"><img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok" class="social-icon"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
